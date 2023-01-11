@@ -48,14 +48,23 @@ ORDER BY list_price DESC, brand_id ASC;
 
 
 -----------------------------------------
-
+-- sıralamaların ölçütü değişti
 ---------------------------------------
+
+
+SELECT top 10*
+FROM product.product
+WHERE list_price >= 3000
+----------------------------------------
+SELECT top 5*
+FROM product.product
+WHERE list_price < 3000
+
+-----------------------------------------
 SELECT last_name
 FROM sale.customer
 WHERE last_name LIKE 'B%s';
-
-
-----------------------------------------
+-----------------------------------------
 SELECT *
 FROM sale.customer
 WHERE city IN ('Allen', 'Buffalo', 'Boston', 'Berkeley');
