@@ -82,3 +82,10 @@ GROUP BY
 SELECT	TN.adv_type, CAST (ROUND (1.0*HN.cnt_order_actions / TN.cnt_action, 2) AS numeric (3,2)) AS Conversion_Rate 
 FROM	TN, HN 
 WHERE	TN.adv_type = HN.adv_type; 
+
+
+
+/*
+SELECT Adv_Type, CAST([Order] * 1.0 / ([Order]+[Review]+[Left]) *1.0 AS DECIMAL(18,2)) as Conversion_Rate
+FROM (SELECT Adv_Type,actions FROM #TABLE1 ) as subquery
+PIVOT (COUNT(Actions) FOR Actions IN ([Order], [Review], [Left])) pvt
